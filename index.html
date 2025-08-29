@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainyBuddy • Study Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff8ff;
+      --card:#ffffff;
+      --ink:#1f2937;
+      --cute:#ff77e9;
+      --cute-2:#8b5cf6;
+      --mint:#b7f0e3;
+      --lemon:#fff3b0;
+      --sky:#b3e5ff;
+      --shadow:0 12px 30px rgba(30,10,60,.08);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink)}
+    a{color:var(--cute-2);text-decoration:none}
+    header{
+      position:sticky;top:0;z-index:10;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);
+      border-bottom:1px dashed #f0d2ff
+    }
+    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px;padding:14px 18px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo span{font-family:"Comic Neue",cursive;font-size:1.4rem}
+    .nav a.link{padding:8px 12px;border-radius:999px}
+    .nav a.link:hover{background:#ffe9ff}
+    .cta{margin-left:auto;background:linear-gradient(135deg,var(--cute),var(--cute-2));color:white;padding:10px 16px;border-radius:999px;box-shadow:var(--shadow)}
+
+    .section{max-width:1100px;margin:28px auto;padding:0 18px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}
+    .bubble{
+      background:conic-gradient(from 180deg at 50% 50%, #ffe4fb, #e7e2ff, #d7fff0, #ffe4fb);
+      padding:28px;border-radius:var(--radius);box-shadow:var(--shadow);position:relative;overflow:hidden
+    }
+    .hero h1{font-size:2.4rem;line-height:1.1;margin:0 0 10px}
+    .hero h1 .spark{background:linear-gradient(135deg,var(--cute-2),var(--cute));-webkit-background-clip:text;color:transparent}
+    .hero p{opacity:.8;margin:0 0 18px}
+    .tagline{display:inline-flex;gap:8px;align-items:center;background:#fff;border-radius:999px;padding:6px 10px;border:1px dashed #ffd0ff}
+
+    .kawaii{aspect-ratio:1/1;background:#fff;border-radius:30px;box-shadow:var(--shadow);display:grid;place-items:center}
+    .kawaii .panda{font-size:80px}
+
+    .grid{display:grid;gap:18px}
+    @media(min-width:860px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid #f4e9ff}
+    .card h3{margin:0 0 8px}
+
+    .subject-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px dashed #ffd0ff;background:#fff;margin:6px 6px 0 0}
+
+    .library-head{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:10px}
+    .library-head input,.library-head select{padding:10px 12px;border-radius:12px;border:1px solid #f2dfff;background:#fff}
+
+    .note{border:2px dashed #ffd9ff;border-radius:16px;padding:14px;background:#fff}
+    .note h4{margin:0 0 6px}
+    .note small{opacity:.7}
+
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #eee}
+
+    .btn{cursor:pointer;border:none;border-radius:12px;padding:10px 14px;font-weight:600;box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(135deg,var(--cute),var(--cute-2));color:#fff}
+    .btn.ghost{background:#fff}
+
+    .upload{display:grid;gap:12px}
+    .upload input,.upload select,.upload textarea{padding:10px 12px;border-radius:12px;border:1px solid #f2dfff;background:#fff}
+    .hint{font-size:.9rem;opacity:.75}
+
+    .videos iframe{width:100%;height:215px;border:0;border-radius:16px;box-shadow:var(--shadow)}
+
+    .marquee{overflow:hidden;white-space:nowrap;border-radius:12px;border:1px dashed #ffd0ff;background:#fff;padding:10px}
+    .marquee span{display:inline-block;animation:scroll 14s linear infinite}
+    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+    footer{margin:30px 0 60px;text-align:center;opacity:.75}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">🐼 <span>BrainyBuddy</span></div>
+      <a class="link" href="#library">Library</a>
+      <a class="link" href="#upload">Share Notes</a>
+      <a class="link" href="#videos">AI Lectures</a>
+      <a class="link" href="#fun">Fun Corner</a>
+      <a class="cta" href="#library">Start Learning ✨</a>
+    </nav>
+  </header>
+
+  <main class="section">
+    <section class="hero">
+      <div class="bubble">
+        <div class="tagline">🎒 Study smart • 😆 Laugh harder • 🤖 Learn with AI</div>
+        <h1>Welcome to <span class="spark">BrainyBuddy</span> —
+          your cute, chaotic, study partner 💖</h1>
+        <p>Share notes, grab sample papers, binge AI lecture videos, and leave with ✨big brain energy✨. No boring vibes allowed.</p>
+        <div class="subject-chip">📚 Notes</div>
+        <div class="subject-chip">📝 Sample Papers</div>
+        <div class="subject-chip">🎥 AI Lectures</div>
+      </div>
+      <div class="kawaii card">
+        <div class="panda">🐼</div>
+        <div style="text-align:center">Hi! I'm Buddy. I eat doubts for breakfast 🥞</div>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section id="library" class="section">
+      <div class="library-head">
+        <h2 style="margin:0">📚 Study Materials Library</h2>
+        <span class="pill">Total items: <b id="count">0</b></span>
+      </div>
+      <div class="library-head">
+        <input type="text" id="search" placeholder="Search notes… (e.g. derivatives, trigonometry)"/>
+        <select id="filterSubject">
+          <option value="all">All Subjects</option>
+          <option>Physics</option>
+          <option>Chemistry</option>
+          <option>Mathematics</option>
+          <option>Biology</option>
+          <option>Computer Science</option>
+          <option>English</option>
+          <option>Economics</option>
+        </select>
+        <select id="filterType">
+          <option value="all">All Types</option>
+          <option>Notes</option>
+          <option>Sample Paper</option>
+          <option>Worksheet</option>
+        </select>
+        <button class="btn ghost" id="clearFilters">Clear</button>
+      </div>
+
+      <div id="libraryList" class="grid cols-2"></div>
+    </section>
+
+    <!-- UPLOAD -->
+    <section id="upload" class="section">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2>📤 Share Your Notes</h2>
+          <p class="hint">Tip: Upload your file to Google Drive (Anyone with the link can view) or paste any public link. You can also attach a file directly (temporary, only on this device).</p>
+          <div class="upload">
+            <label>Title
+              <input id="uTitle" placeholder="e.g. Differentiation Formulas – Quick Sheet"/>
+            </label>
+            <label>Subject
+              <select id="uSubject">
+                <option>Physics</option><option>Chemistry</option><option>Mathematics</option><option>Biology</option><option>Computer Science</option><option>English</option><option>Economics</option>
+              </select>
+            </label>
+            <label>Type
+              <select id="uType">
+                <option>Notes</option><option>Sample Paper</option><option>Worksheet</option>
+              </select>
+            </label>
+            <label>Link (preferred)
+              <input id="uLink" placeholder="Paste Google Drive / OneDrive / direct PDF link"/>
+            </label>
+            <label>OR Upload file (temporary)
+              <input id="uFile" type="file" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"/>
+            </label>
+            <label>Description (optional)
+              <textarea id="uDesc" rows="3" placeholder="What’s inside? Any tips?"/></textarea>
+            </label>
+            <button class="btn primary" id="btnAdd">Add to Library ➕</button>
+            <div class="hint">Shared items are saved to <b>this site’s library</b> (localStorage). For a real multi-user wall, connect a free Google Form later. (Guide included below.)</div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>🤔 How sharing works (no backend!)</h2>
+          <ul>
+            <li>We keep a tiny database in your browser (<code>localStorage</code>).</li>
+            <li>Use <b>links</b> so everyone can access the file.
+              <ul>
+                <li>Google Drive → Share → Anyone with the link → Viewer.</li>
+              </ul>
+            </li>
+            <li>File uploads create a <i>temporary</i> link that works only on this device.</li>
+            <li>Want multi-user contributions? Use a <b>Google Form</b> to collect titles/links → publish the sheet → paste links here. Easy! ✨</li>
+          </ul>
+          <div class="marquee" style="margin-top:14px"><span>🔥 Pro tip: Good notes = good marks = good snacks 🍫 • Share love, share PDFs 💖 • Be a NoteNinja 🥷 • Don’t plagiarize, appreciate! ⭐</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="videos" class="section">
+      <h2>🎥 AI Lecture Zone</h2>
+      <p class="hint">Handpicked explainers where AI/animations make topics painless. Popcorn optional 🍿</p>
+      <div class="grid cols-3 videos">
+        <!-- Math -->
+        <div class="card"><h3>Math: Derivatives in 5 mins</h3>
+          <iframe src="https://www.youtube.com/embed/rAof9Ld5sOg" allowfullscreen></iframe>
+        </div>
+        <!-- Physics -->
+        <div class="card"><h3>Physics: Newton’s Laws (visual)</h3>
+          <iframe src="https://www.youtube.com/embed/kKKM8Y-u7ds" allowfullscreen></iframe>
+        </div>
+        <!-- Chemistry -->
+        <div class="card"><h3>Chem: Periodic Trends (easy)</h3>
+          <iframe src="https://www.youtube.com/embed/fPnwBITSmgU" allowfullscreen></iframe>
+        </div>
+        <!-- Biology -->
+        <div class="card"><h3>Bio: Photosynthesis (animated)</h3>
+          <iframe src="https://www.youtube.com/embed/UPBMG5EYydo" allowfullscreen></iframe>
+        </div>
+        <!-- CS -->
+        <div class="card"><h3>CS: Python Basics</h3>
+          <iframe src="https://www.youtube.com/embed/_uQrJ0TkZlc" allowfullscreen></iframe>
+        </div>
+        <!-- English -->
+        <div class="card"><h3>English: Write better essays</h3>
+          <iframe src="https://www.youtube.com/embed/IyU32zJ1D6I" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUN CORNER -->
+    <section id="fun" class="section">
+      <h2>😜 Fun Corner</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Quote of the moment</h3>
+          <div id="quote" style="font-size:1.1rem"></div>
+        </div>
+        <div class="card"><h3>Mood Meter</h3>
+          <button class="btn ghost" onclick="mood('🥱')">Sleepy</button>
+          <button class="btn ghost" onclick="mood('🤓')">Nerd</button>
+          <button class="btn ghost" onclick="mood('🕺')">Party</button>
+          <div id="moodOut" style="margin-top:10px">Current: 🤓</div>
+        </div>
+        <div class="card"><h3>Mini Timer ⏱️</h3>
+          <input id="mins" type="number" min="1" value="5" style="width:90px"> minutes
+          <button class="btn primary" onclick="startTimer()">Start</button>
+          <div id="timer" style="margin-top:10px;font-size:1.4rem">05:00</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Made with 🐼 by students • Free to host on GitHub Pages / Replit
+    </footer>
+  </main>
+
+  <script>
+    // --- tiny DB with localStorage ---
+    const KEY = 'bb_items_v1';
+    const elList = document.getElementById('libraryList');
+    const elCount = document.getElementById('count');
+    const search = document.getElementById('search');
+    const filterSubject = document.getElementById('filterSubject');
+    const filterType = document.getElementById('filterType');
+
+    const sample = [
+      {title:'Derivatives – Quick Sheet', subject:'Mathematics', type:'Notes', link:'https://www.cse.iitb.ac.in/~cs213/notes/differentiation.pdf', desc:'All basic formulas + tips'},
+      {title:'Trigonometry Crash', subject:'Mathematics', type:'Worksheet', link:'https://people.math.harvard.edu/~elkies/Misc/trig_identities.pdf', desc:'Identities practice'},
+      {title:'Mechanics PYQ (XI)', subject:'Physics', type:'Sample Paper', link:'https://physics-and-radio-electronics.com/wp-content/uploads/2016/08/Newton-Laws-Problems.pdf', desc:'Force & motion questions'},
+      {title:'Chemical Bonding Notes', subject:'Chemistry', type:'Notes', link:'https://www.chemguide.co.uk/atoms/bondingmenu.html', desc:'Types of bonds quick read'},
+      {title:'Photosynthesis summary', subject:'Biology', type:'Notes', link:'https://www.biologydiscussion.com/photosynthesis/photosynthesis-short-notes/26415', desc:'Short theory'},
+      {title:'Python – Basics to Loops', subject:'Computer Science', type:'Notes', link:'https://docs.python.org/3/tutorial/index.html', desc:'Official tutorial (chapters 1–4)'}
+    ];
+
+    function load(){
+      const raw = localStorage.getItem(KEY);
+      if(!raw){ localStorage.setItem(KEY, JSON.stringify(sample)); return sample; }
+      try{ return JSON.parse(raw); }catch{ return sample; }
+    }
+
+    function save(items){ localStorage.setItem(KEY, JSON.stringify(items)); }
+
+    function card(item, idx){
+      return `
+      <div class="note">
+        <h4>${item.title} <span class="subject-chip">${item.subject}</span> <span class="subject-chip">${item.type}</span></h4>
+        <small>${item.desc||''}</small>
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+          <a class="btn primary" target="_blank" href="${item.link}">Open 📎</a>
+          <button class="btn ghost" onclick="copy('${item.link.replace(/'/g,"%27")}')">Copy Link</button>
+          <button class="btn ghost" onclick="removeItem(${idx})">Delete</button>
+        </div>
+      </div>`;
+    }
+
+    function render(){
+      const q = (search.value||'').toLowerCase();
+      const s = filterSubject.value;
+      const t = filterType.value;
+      const items = load();
+      const filtered = items.filter(it=>
+        (s==='all'||it.subject===s)&&
+        (t==='all'||it.type===t)&&
+        (it.title.toLowerCase().includes(q)|| (it.desc||'').toLowerCase().includes(q))
+      );
+      elList.innerHTML = filtered.map((it,idx)=>card(it, idx)).join('');
+      elCount.textContent = items.length;
+    }
+
+    function addItem(obj){
+      const items = load();
+      items.unshift(obj); save(items); render();
+    }
+
+    function removeItem(idx){
+      const items = load(); items.splice(idx,1); save(items); render();
+    }
+
+    function copy(text){
+      navigator.clipboard.writeText(text).then(()=>{
+        alert('Link copied! Share with your classmates ✨');
+      });
+    }
+
+    // --- upload logic ---
+    document.getElementById('btnAdd').addEventListener('click', async ()=>{
+      const title = document.getElementById('uTitle').value.trim();
+      const subject = document.getElementById('uSubject').value;
+      const type = document.getElementById('uType').value;
+      const desc = document.getElementById('uDesc').value.trim();
+      const linkInput = document.getElementById('uLink').value.trim();
+      const file = document.getElementById('uFile').files[0];
+
+      if(!title){return alert('Please add a title 🙂');}
+
+      let link = linkInput;
+      if(!link && file){
+        // create a temporary object URL so the file is downloadable locally
+        link = URL.createObjectURL(file);
+      }
+      if(!link){return alert('Please paste a link or add a file.');}
+
+      addItem({title, subject, type, link, desc});
+      // clear form
+      document.getElementById('uTitle').value='';
+      document.getElementById('uLink').value='';
+      document.getElementById('uFile').value='';
+      document.getElementById('uDesc').value='';
+      alert('Added! Thank you for sharing 💖');
+    });
+
+    document.getElementById('clearFilters').addEventListener('click',()=>{
+      search.value=''; filterSubject.value='all'; filterType.value='all'; render();
+    });
+    search.addEventListener('input', render);
+    filterSubject.addEventListener('change', render);
+    filterType.addEventListener('change', render);
+
+    // --- Fun corner utils ---
+    const quotes = [
+      'Study tip: drink water, not WhatsApp statuses. 💧',
+      'If at first you don\'t succeed, try coffee. ☕',
+      'Tiny steps ≫ big panic. You got this! ✨',
+      'Be a proton—always positive. ⚛️',
+      'Notes today, toppers tomorrow. 🏆'
+    ];
+    function rotateQuote(){
+      const q = quotes[Math.floor(Math.random()*quotes.length)];
+      document.getElementById('quote').textContent = '“'+q+'”';
+    }
+    function mood(m){ document.getElementById('moodOut').textContent = 'Current: '+m; }
+
+    // timer
+    let timerId=null; function startTimer(){
+      const mins = parseInt(document.getElementById('mins').value||'5',10);
+      let total = Math.max(1, mins)*60; clearInterval(timerId);
+      timerId = setInterval(()=>{
+        const mm = String(Math.floor(total/60)).padStart(2,'0');
+        const ss = String(total%60).padStart(2,'0');
+        document.getElementById('timer').textContent = `${mm}:${ss}`;
+        if(total--<=0){clearInterval(timerId); alert('Time! Stretch + hydrate 💦');}
+      },1000);
+    }
+
+    // init
+    rotateQuote(); setInterval(rotateQuote, 8000);
+    render();
+  </script>
+</body>
+        </html>
+  
